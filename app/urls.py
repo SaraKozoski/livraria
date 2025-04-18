@@ -6,11 +6,15 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 from rest_framework.routers import DefaultRouter
-
 from core.views import UserViewSet
+from core.views import CategoriaViewSet # nova linha
+
+
 
 router = DefaultRouter()
 
+router.register(r"categorias", CategoriaViewSet) # nova linha
+router.register(r"users", UserViewSet, basename="users")
 router.register(r'usuarios', UserViewSet, basename='usuarios')
 
 urlpatterns = [
